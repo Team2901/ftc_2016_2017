@@ -1,3 +1,16 @@
+Instruction on setting up and using git with android studios 
+1. from welcome screen, choose "check out project from version control"
+2. pick github as the source
+3. provide github login creds
+4. set a master password
+5. set Git Repository Url to https://github.com/Team2901/ftc_2017.git
+6. Choose local directory to save the repo to
+7. clone
+8. use defaults for all settings
+9. If you get an resolve error about SDK location it means the project doesn't know where your sdk is located. You can either the ANDROID_HOME enviroment variable to point to the path or add a local.properies files (see http://stackoverflow.com/questions/20673378/where-does-local-properties-go-for-android-project). Ask for help if you get stuck here
+
+see https://www.londonappdeveloper.com/how-to-use-git-hub-with-android-studio/ for how to commit changes
+
 # ftc_app
 FTC Android Studio project to create FTC Robot Controller app.
 
