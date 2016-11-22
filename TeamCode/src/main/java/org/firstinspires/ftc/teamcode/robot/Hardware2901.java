@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.robot;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -55,7 +56,7 @@ public class Hardware2901
         shootingMotor =hwMap.dcMotor.get("shooter");
         sweeperMotor =hwMap.dcMotor.get("sweeper");
         arm =hwMap.servo.get("arm");
-        rightMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
+        rightMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         leftMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         shootingMotor.setDirection(DcMotor.Direction.FORWARD);
         sweeperMotor.setDirection(DcMotor.Direction.REVERSE);

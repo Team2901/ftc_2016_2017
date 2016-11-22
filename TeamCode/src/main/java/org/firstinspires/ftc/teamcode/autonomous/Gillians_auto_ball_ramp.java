@@ -71,7 +71,7 @@ import org.firstinspires.ftc.teamcode.robot.Hardware2901wheeltest;
  */
 
 @Autonomous(name="2901 ball", group="Autonomous")
-public class Gillians_auto_ball extends LinearOpMode {
+public class Gillians_auto_ball_ramp extends LinearOpMode {
 
     /* Declare OpMode members. */
     Hardware2901wheeltest robot   = new Hardware2901wheeltest();

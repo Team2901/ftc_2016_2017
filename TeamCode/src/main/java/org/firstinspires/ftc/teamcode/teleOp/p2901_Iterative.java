@@ -35,6 +35,7 @@ package org.firstinspires.ftc.teamcode.teleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.robot.Hardware2901;
 
@@ -53,7 +54,7 @@ import org.firstinspires.ftc.teamcode.robot.Hardware2901;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="2901: stefan Tank", group="2901")
+@TeleOp(name="2901: Nov 22", group="2901")
 public class p2901_Iterative extends OpMode{
 
     /* Declare OpMode members. */
@@ -120,6 +121,7 @@ public class p2901_Iterative extends OpMode{
         }
        else if((gamepad1.right_bumper) && !(gamepad1.left_bumper))
         {
+            robot.sweeperMotor.setDirection(DcMotor.Direction.FORWARD);
             robot.sweeperMotor.setPower(1.0);
         }
         else
