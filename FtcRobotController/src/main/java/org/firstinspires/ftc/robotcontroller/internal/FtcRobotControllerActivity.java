@@ -111,6 +111,9 @@ public class FtcRobotControllerActivity extends Activity {
   protected ProgrammingModeController programmingModeController;
 
   protected UpdateUI.Callback callback;
+
+  public static Context appContext;
+
   protected Context context;
   protected Utility utility;
   protected AppUtil appUtil = AppUtil.getInstance();
@@ -201,7 +204,7 @@ public class FtcRobotControllerActivity extends Activity {
     eventLoop = null;
 
     setContentView(R.layout.activity_ftc_controller);
-
+    appContext = this;
     context = this;
     utility = new Utility(this);
     appUtil.setThisApp(new PeerAppRobotController(context));
