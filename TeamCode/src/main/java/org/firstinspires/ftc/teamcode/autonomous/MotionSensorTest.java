@@ -41,7 +41,7 @@ public class MotionSensorTest extends LinearOpMode implements SensorEventListene
         Context context = FtcRobotControllerActivity.appContext;
 
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        Sensor mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
+        Sensor mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE); // requires gyroscope and accelerometer
 
         if (mSensor != null)
         {
@@ -50,20 +50,32 @@ public class MotionSensorTest extends LinearOpMode implements SensorEventListene
             telemetry.addData("MinDelay", "%d", minDelay);
 
             mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
-
-            waitForStart();
-            while(opModeIsActive()) {
-                telemetry.addData("X rot", "%f", rotation_x);
-                telemetry.addData("Y rot", "%f", rotation_y);
-                telemetry.addData("Z rot", "%f", rotation_z);
-                telemetry.update();
-            }
-            mSensorManager.unregisterListener(this);
         }
         else
         {
             telemetry.addData("Rotation Sensor",  "Not Present");
+            telemetry.addLine("==Sensors===");
+            List<Sensor> allSensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+            for(Sensor s: allSensors)
+            {
+                telemetry.addData("Sensor", s.getName());
+            }
         }
+
+        waitForStart();
+        while(opModeIsActive()) {
+/*
+            if (mSensor != null) {
+                telemetry.addData("X rot", "%f", rotation_x);
+                telemetry.addData("Y rot", "%f", rotation_y);
+                telemetry.addData("Z rot", "%f", rotation_z);
+
+            }
+            */
+            telemetry.update();
+        }
+        if (mSensor != null)
+            mSensorManager.unregisterListener(this);
     }
 
     @Override
