@@ -74,12 +74,12 @@ import org.firstinspires.ftc.teamcode.robot.Hardware2901wheeltest;
 public class Gillians_auto_ball_ramp extends LinearOpMode {
 
     /* Declare OpMode members. */
-    Hardware2901wheeltest robot   = new Hardware2901wheeltest();
+    Hardware2901 robot   = new Hardware2901();
     private ElapsedTime     runtime = new ElapsedTime();
 
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ;
-    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
-    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
+    static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
+    static final double     WHEEL_DIAMETER_INCHES   = 4.37 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
                                                       (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double     DRIVE_SPEED             = 0.6;
@@ -105,6 +105,7 @@ public class Gillians_auto_ball_ramp extends LinearOpMode {
         robot.leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
                           robot.leftMotor.getCurrentPosition(),
@@ -116,13 +117,9 @@ public class Gillians_auto_ball_ramp extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  48,  48, 10.0);// S1: Forward 47 Inches with 5 Sec timeout
-
-        robot.leftMotor.setDirection(DcMotor.Direction.REVERSE);
+        encoderDrive(DRIVE_SPEED,  48, 48, 10.0);// S1: Forward 47 Inches with 5 Sec timeout
 
         encoderPivot(DRIVE_SPEED, 12, 10.0);
-
-        robot.leftMotor.setDirection(DcMotor.Direction.FORWARD);
 
         encoderDrive(DRIVE_SPEED, 56, 56, 10.0);
         telemetry.addData("Path", "Complete");
